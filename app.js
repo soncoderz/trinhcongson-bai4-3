@@ -22,17 +22,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 //localhost:3000/users
 app.use('/api/v1/users', require('./routes/users'));
-app.use('/api/v1/products',require('./routes/products'))
-app.use('/api/v1/categories',require('./routes/categories'))
+app.use('/api/v1/products', require('./routes/products'))
+app.use('/api/v1/categories', require('./routes/categories'))
+app.use('/api/v1/roles', require('./routes/roles'))
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
